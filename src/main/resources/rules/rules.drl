@@ -41,17 +41,128 @@ declare UlubioneMiejsceDoPlywania
     nazwa: String
 end
 
+declare UlubionaPlycizna
+    nazwa: String
+end
+
+declare CzyLubiFrytki
+    odpowiedz: String
+end
+
+declare CzyUtrzymujeSieNaWodzie
+    odpowiedz: String
+end
+
+declare CzyPlywaRekreacyjnie
+    odpowiedz: String
+end
+
+declare CzyPlywaSam
+    odpowiedz: String
+end
+
+declare DlaczegoPlywaSam
+    odpowiedz: String
+end
+
+declare KompaniDoPlywania
+    kompani: String
+end
+
+declare CzyJestStraszny
+    odpowiedz: String
+end
+
+declare CzyMaWiecejZebowNizMacek
+    odpowiedz: String
+end
+
+declare PredkoscBiegu
+    predkosc: String
+end
+
+declare CzyBiegaWBudynkach
+    odpowiedz: String
+end
+
+declare CzyMaDom
+    odpowiedz: String
+end
+
+declare PiosenkaZIpoda
+    nazwa: String
+end
+
+declare CzyBiegaTakSzybkoZeAzFrunie
+    odpowiedz: String
+end
+
+declare GdzieTakSzybkoBiega
+    odpowiedz: String
+end
+
+declare CzySzybkoChodzi
+    odpowiedz: String
+end
+
+declare Postura
+    odpowiedz: String
+end
+
+declare UlubioneJedzenie
+    rodzaj: String
+end
+
+declare CzyJestHipisem
+    odpowiedz: String
+end
+
+declare CzyMaBrode
+    odpowiedz: String
+end
+
+declare PreferencjaGlosowania
+    preferencja: String
+end
+
+declare CzyWejdzieNaDrzewoPoJedzenie
+    odpowiedz: String
+end
+
+declare PredkoscWchodzeniaNaDrzewo
+    predkosc: String
+end
+
+declare PowodLenistwa
+    powod: String
+end
+
+declare CzyZabilbyZwierze
+    odpowiedz: String
+end
+
+declare CzasZabiciaZwierzecia
+    czas: String
+end
+
+declare PowodNiezabijania
+    powod: String
+end
+
 rule "Initialize system"
     when
     then
         Main.createAndShowWelcomingWindow();
         insert(new QuestionData("Jaka jest Twoja ulubiona czynność?", new String[]{"spanie", "bieganie", "plywanie", "jedzenie", "nie rozumiem o co chodzi", "randkowanie"}));
+
         insert(new QuestionData("Czy pracujesz na nocnej zmianie?", new String[]{"Tak", "Nie"}));
         insert(new QuestionData("Czy lubisz sie przytulac?", new String[]{"Moja mama mówi, że tak", "Ludzie inni niż moja mama mówią, że tak"}));
+
         insert(new QuestionData("FUCK AND CHUCK?? :---))))", new String[]{"Tak", "Nie"}));
         insert(new QuestionData("Czy jestes pantoflem (gospodyniem domowym)?", new String[]{"Tak", "Nie"}));
+
         insert(new QuestionData("Gdzie lubisz pływać?", new String[]{"W piachu", "W płyciznach", "Na głębokim morzu", "Nie, na G Ł Ę B O K I M  morzu"}));
-        insert(new QuestionData("W jakich płyciznach?", new String[]{"W kałużach na chodniku", "W stawach i jeziorach", "Na strumykach i rzekach"}));
+        insert(new QuestionData("W jakich płyciznach?", new String[]{"W kałużach na chodniku", "W stawach i jeziorach", "W strumykach i rzekach"}));
         insert(new QuestionData("Czy jesz frytki?", new String[]{"Tak, precle także", "Nie"}));
         insert(new QuestionData("Czy umiesz utrzymywać się na wodzie?", new String[]{"Tak, nie utonąłbym, nawet jeślibym próbował", "Tonę jak kamień :("}));
         insert(new QuestionData("Pływasz rekreacyjnie?", new String[]{"Tak, lubię się bawić w wodzie", "Niezbyt, pływam bardziej wyczynowo 8)"}));
@@ -60,6 +171,27 @@ rule "Initialize system"
         insert(new QuestionData("Z kim więc pływasz?", new String[]{"Z moim towarzyszem życia", "Z wszystkimi moimi 15 tysiącami znajomych z facebooka"}));
         insert(new QuestionData("Czy jesteś straszny?", new String[]{"Tak", "Nie"}));
         insert(new QuestionData("Czego masz więcej?", new String[]{"Zębów", "Macek"}));
+
+        insert(new QuestionData("Jak szybko biegasz?", new String[]{"Jestem całkiem szybki!", "Tak szybko, że aż frunę!", "Żartowałem, naprawdę to chodzę"}));
+        insert(new QuestionData("Głównie w budynkach?", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Masz dom, czy wynajmujesz?", new String[]{"Jeśli gdzieś sikam, to jest to moje, nie?", "Aktualnie siedzę pomiędzy piętrami"}));
+        insert(new QuestionData("Jaką piosenkę masz na iPodzie?", new String[]{"My Old Kentucky Home", "Hakuna Matata"}));
+        insert(new QuestionData("Dosłownie?", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Więc jak?", new String[]{"W moich snach", "W przenośni"}));
+        insert(new QuestionData("Chodzisz szybko?", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Jaka jest Twoja postura?", new String[]{"Idealna 8)", "Jak u Quasimodo"}));
+
+        insert(new QuestionData("Co jesz?", new String[]{"Na pewno nie mięso", "Wszystko", "Wszystko, co ma krew"}));
+        insert(new QuestionData("Jesteś hipisem?", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Masz brodę?", new String[]{"Na całym ciele ;)", "Wolę tatuaże"}));
+        insert(new QuestionData("Za czym głosujesz?", new String[]{"Za ruchem podziemnym", "Za prawem do posiadania broni"}));
+        insert(new QuestionData("Wszedłbyś na drzewo po jedzenie?", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Jak szybko?", new String[]{"Szybciej niż myślałeś", "Wolniej niż myślałeś"}));
+        insert(new QuestionData("Dlaczego jesteś taki leniwy?", new String[]{"Potrzebuję 9 miesięcy pięknych snów", "Łatwiej wejść do kosza na śmieci"}));
+        insert(new QuestionData("Zabiłbyś zwierzę, aby mieć jedzenie?", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Jak długo by to zajęło?", new String[]{"Związałbym i zabił parę godzin później", "Kilka sekund", "Wiele godzin"}));
+        insert(new QuestionData("Dlaczego nie?", new String[]{"I tak kto inny to robi", "Bo lubię surowe steki ;-)"}));
+
         insert(new UserStartedQuiz());
 end
 
@@ -72,6 +204,332 @@ rule "Ask first question"
         insert(new UlubionaCzynnosc(answer));
 end
 
+
+rule "Uzytkownik lubi jeść"
+    when
+         u: (UlubionaCzynnosc(czynnosc == "jedzenie"))
+         q: QuestionData( pytanie == "Co jesz?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new UlubioneJedzenie(answer));
+end
+
+rule "Uzytkownik jest wege"
+    when
+         u: (UlubioneJedzenie(rodzaj == "Na pewno nie mięso"))
+         q: QuestionData( pytanie == "Jesteś hipisem?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyJestHipisem(answer));
+end
+
+rule "Uzytkownik jest hipisem"
+    when
+         c: (CzyJestHipisem(odpowiedz == "Tak"))
+         q: QuestionData( pytanie == "Masz brodę?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyMaBrode(answer));
+end
+
+rule "Uzytkownik ma brode"
+    when
+         c: (CzyMaBrode(odpowiedz == "Na całym ciele ;)"))
+    then
+        insert(new Wynik("Pochodzisz od jaka"));
+end
+
+rule "Uzytkownik woli tatuaze od brody"
+    when
+         c: (CzyMaBrode(odpowiedz == "Wolę tatuaże"))
+    then
+        insert(new Wynik("Pochodzisz od zebry równikowej"));
+end
+
+rule "Uzytkownik nie jest hipisem"
+    when
+         c: (CzyJestHipisem(odpowiedz == "Nie"))
+         q: QuestionData( pytanie == "Za czym głosujesz?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new PreferencjaGlosowania(answer));
+end
+
+rule "Uzytkownik glosuje za ruchem podziemnym"
+    when
+         p: (PreferencjaGlosowania(preferencja == "Za ruchem podziemnym"))
+    then
+        insert(new Wynik("Pochodzisz od dżdżownicy :D"));
+end
+
+rule "Uzytkownik glosuje za prawem do posiadania broni"
+    when
+         p: (PreferencjaGlosowania(preferencja == "Za prawem do posiadania broni"))
+    then
+        insert(new Wynik("Pochodzisz od Słonia Afrykańskiego"));
+end
+
+rule "Uzytkownik jest wszystkozerny"
+    when
+         u: (UlubioneJedzenie(rodzaj == "Wszystko"))
+         q: QuestionData( pytanie == "Wszedłbyś na drzewo po jedzenie?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyWejdzieNaDrzewoPoJedzenie(answer));
+end
+
+rule "Uzytkownik wszedlby na drzewo"
+    when
+         c: (CzyWejdzieNaDrzewoPoJedzenie(odpowiedz == "Tak"))
+         q: QuestionData( pytanie == "Jak szybko?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new PredkoscWchodzeniaNaDrzewo(answer));
+end
+
+rule "Uzytkownik wszedlby szybko"
+    when
+         c: (PredkoscWchodzeniaNaDrzewo(predkosc == "Szybciej niż myślałeś"))
+    then
+        insert(new Wynik("Pochodzisz od Czarnego Niedźwiedzia Himalajskiego"));
+end
+
+rule "Uzytkownik wszedlby wolno"
+    when
+         c: (PredkoscWchodzeniaNaDrzewo(predkosc == "Wolniej niż myślałeś"))
+    then
+        insert(new Wynik("Pochodzisz od Leniuchowców"));
+end
+
+rule "Uzytkownik nie wszedlby na drzewo"
+    when
+         c: (CzyWejdzieNaDrzewoPoJedzenie(odpowiedz == "Nie"))
+         q: QuestionData( pytanie == "Dlaczego jesteś taki leniwy?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new PowodLenistwa(answer));
+end
+
+rule "Uzytkownik jest leniwy, bo potrzebuje snu"
+    when
+         p: (PowodLenistwa(powod == "Potrzebuję 9 miesięcy pięknych snów"))
+    then
+        insert(new Wynik("Pochodzisz od Świstaka Alpejskiego"));
+end
+
+rule "Uzytkownik jest leniwy, bo jest smieciarzem"
+    when
+         p: (PowodLenistwa(powod == "Łatwiej wejść do kosza na śmieci"))
+    then
+        insert(new Wynik("Pochodzisz od Szopa Pracza :D"));
+end
+
+rule "Uzytkownik jest miesozerny"
+    when
+         u: (UlubioneJedzenie(rodzaj == "Wszystko, co ma krew"))
+         q: QuestionData( pytanie == "Zabiłbyś zwierzę, aby mieć jedzenie?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyZabilbyZwierze(answer));
+end
+
+rule "Uzytkownik zabilby zwierze"
+    when
+         c: (CzyZabilbyZwierze(odpowiedz == "Tak"))
+         q: QuestionData( pytanie == "Jak długo by to zajęło?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzasZabiciaZwierzecia(answer));
+end
+
+rule "Uzytkownik zwiazalby przed zabiciem"
+    when
+         c: (CzasZabiciaZwierzecia(czas == "Związałbym i zabił parę godzin później"))
+    then
+        insert(new Wynik("Pochodzisz od Czarnej Wdowy (taki jadowity pająk)"));
+end
+
+rule "Uzytkownik zabilby w pare sekund"
+    when
+         c: (CzasZabiciaZwierzecia(czas == "Kilka sekund"))
+    then
+        insert(new Wynik("Pochodzisz od Krokodyla Różańcowego"));
+end
+
+rule "Uzytkownik zabijalby godzinami"
+    when
+         c: (CzasZabiciaZwierzecia(czas == "Wiele godzin"))
+    then
+        insert(new Wynik("Pochodzisz od Birmańskiego Pytona"));
+end
+
+rule "Uzytkownik nie zabilby zwierzecia"
+    when
+         c: (CzyZabilbyZwierze(odpowiedz == "Nie"))
+         q: QuestionData( pytanie == "Dlaczego nie?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new PowodNiezabijania(answer));
+end
+
+rule "Uzytkownik wysluzylby sie kims innym"
+    when
+         p: (PowodNiezabijania(powod == "I tak kto inny to robi"))
+    then
+        insert(new Wynik("Pochodzisz od Sępa Plamistego"));
+end
+
+rule "Uzytkownik lubi surowe mięsko"
+    when
+        p: (PowodNiezabijania(powod == "Bo lubię surowe steki ;-)"))
+    then
+        insert(new Wynik("Pochodzisz od Pijawki Końskiej"));
+end
+
+
+rule "Uzytkownik lubi biegać"
+    when
+         u: (UlubionaCzynnosc(czynnosc == "bieganie"))
+         q: QuestionData( pytanie == "Jak szybko biegasz?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new PredkoscBiegu(answer));
+end
+
+rule "Uzytkownik biega dosc szybko"
+    when
+        p: (PredkoscBiegu(predkosc == "Jestem całkiem szybki!"))
+        q: QuestionData( pytanie == "Głównie w budynkach?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyBiegaWBudynkach(answer));
+end
+
+rule "Uzytkownik biega glownie w budynkach"
+    when
+        c: (CzyBiegaWBudynkach(odpowiedz == "Tak"))
+        q: QuestionData( pytanie == "Masz dom, czy wynajmujesz?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyMaDom(answer));
+end
+
+rule "Uzytkownik twierdzi, ze ma dom, bo w nim wydala"
+    when
+        c :(CzyMaDom(odpowiedz == "Jeśli gdzieś sikam, to jest to moje, nie?"))
+    then
+        insert(new Wynik("Pochodzisz od Miniaturowego Schnauzera ;)"));
+end
+
+rule "Uzytkownik twierdzi, ze siedzi miedzy pietrami"
+    when
+        c :(CzyMaDom(odpowiedz == "Aktualnie siedzę pomiędzy piętrami"))
+    then
+        insert(new Wynik("Pochodzisz od karalucha :P"));
+end
+
+rule "Uzytkownik biega glownie na zewnatrz"
+    when
+        c: (CzyBiegaWBudynkach(odpowiedz == "Nie"))
+        q: QuestionData( pytanie == "Jaką piosenkę masz na iPodzie?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new PiosenkaZIpoda(answer));
+end
+
+rule "Uzytkownik ma na IPodzie 'My Old Kentucky Home'"
+    when
+        p :(PiosenkaZIpoda(nazwa == "My Old Kentucky Home"))
+    then
+        insert(new Wynik("Pochodzisz od Quarter Horse'a"));
+end
+
+rule "Uzytkownik ma na IPodzie 'Hakuna Matata'"
+    when
+        p :(PiosenkaZIpoda(nazwa == "Hakuna Matata"))
+    then
+        insert(new Wynik("Pochodzisz od Afrykańskiego Lwa"));
+end
+
+rule "Uzytkownik biega tak szybko, że aż lata"
+    when
+        p: (PredkoscBiegu(predkosc == "Tak szybko, że aż frunę!"))
+        q: QuestionData( pytanie == "Dosłownie?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyBiegaTakSzybkoZeAzFrunie(answer));
+end
+
+rule "Uzytkownik biega tak szybko, że aż lata (doslownie)"
+    when
+        c: (CzyBiegaTakSzybkoZeAzFrunie(odpowiedz == "Tak"))
+    then
+        insert(new Wynik("Pochodzisz od Sokoła Wędrownego"));
+end
+
+rule "Uzytkownik biega tak szybko, że aż lata (ale nie doslownie)"
+    when
+        c: (CzyBiegaTakSzybkoZeAzFrunie(odpowiedz == "Nie"))
+        q: QuestionData( pytanie == "Więc jak?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new GdzieTakSzybkoBiega(answer));
+end
+
+rule "Uzytkownik lata w snach"
+    when
+        g: (GdzieTakSzybkoBiega(odpowiedz == "W moich snach"))
+    then
+        insert(new Wynik("Pochodzisz od Tanzańskiego Strusia"));
+end
+
+rule "Uzytkownik lata metaforycznie"
+    when
+        g: (GdzieTakSzybkoBiega(odpowiedz == "W przenośni"))
+    then
+        insert(new Wynik("Pochodzisz od Geparda :-)"));
+end
+
+rule "Uzytkownik chodzi"
+    when
+        p: (PredkoscBiegu(predkosc == "Żartowałem, naprawdę to chodzę"))
+        q: QuestionData( pytanie == "Chodzisz szybko?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzySzybkoChodzi(answer));
+end
+
+rule "Uzytkownik chodzi szybko"
+    when
+        c: (CzySzybkoChodzi(odpowiedz == "Tak"))
+        q: QuestionData( pytanie == "Jaka jest Twoja postura?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new Postura(answer));
+end
+
+rule "Uzytkownik ma dobra posture"
+    when
+        p: (Postura(odpowiedz == "Idealna 8)"))
+    then
+        insert(new Wynik("Pochodzisz od Kangura Antylopiego :-)"));
+end
+
+rule "Uzytkownik ma zla posture"
+    when
+        p: (Postura(odpowiedz == "Jak u Quasimodo"))
+    then
+        insert(new Wynik("Pochodzisz od Goryla (w sumie, to tak powinno być)"));
+end
+
+rule "Uzytkownik chodzi wolno"
+    when
+        c: (CzySzybkoChodzi(odpowiedz == "Nie"))
+    then
+        insert(new Wynik("Pochodzisz od Żółwia Słoniowego"));
+end
+
+
 rule "Uzytkownik lubi plywac"
     when
          u: (UlubionaCzynnosc(czynnosc == ("plywanie")))
@@ -80,6 +538,179 @@ rule "Uzytkownik lubi plywac"
         answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
         insert(new UlubioneMiejsceDoPlywania(answer));
 end
+
+rule "Uzytkownik lubi plywac w piachu"
+    when
+        u :(UlubioneMiejsceDoPlywania(nazwa == "W piachu"))
+    then
+        insert(new Wynik("Pochodzisz od Warana Szarego!"))
+end
+
+rule "Uzytkownik lubi plywac w plyciznach"
+    when
+        u :(UlubioneMiejsceDoPlywania(nazwa == "W płyciznach"))
+        q: QuestionData( pytanie == "W jakich płyciznach?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new UlubionaPlycizna(answer));
+end
+
+rule "Uzytkownik lubi plywac w kaluzach"
+    when
+        u :(UlubionaPlycizna(nazwa == "W kałużach na chodniku"))
+        q: QuestionData( pytanie == "Czy jesz frytki?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyLubiFrytki(answer));
+end
+
+rule "Uzytkownik lubi frytki i precle"
+    when
+        c :(CzyLubiFrytki(odpowiedz == "Tak, precle także"))
+    then
+        insert(new Wynik("Pochodzisz od Gołębia Miejskiego ;)"));
+end
+
+rule "Uzytkownik nie lubi frytek"
+    when
+        c :(CzyLubiFrytki(odpowiedz == "Nie"))
+    then
+        insert(new Wynik("Prawdopodbnie pochodzisz od alg :D"));
+end
+
+rule "Uzytkownik lubi plywac w stawach i jeziorach"
+    when
+        u :(UlubionaPlycizna(nazwa == "W stawach i jeziorach"))
+        q: QuestionData( pytanie == "Czy umiesz utrzymywać się na wodzie?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyUtrzymujeSieNaWodzie(answer));
+end
+
+rule "Uzytkownik unosi sie na wodzie"
+    when
+        c :(CzyUtrzymujeSieNaWodzie(odpowiedz == "Tak, nie utonąłbym, nawet jeślibym próbował"))
+    then
+        insert(new Wynik("Pochodzisz od mniejszej Śnieżycy Dużej :D"));
+end
+
+rule "Uzytkownik nie unosi sie na wodzie"
+    when
+        c :(CzyUtrzymujeSieNaWodzie(odpowiedz == "Tonę jak kamień :("))
+    then
+        insert(new Wynik("Pochodzisz od Skójki Gruboskorupowej (typ małża) :-)"));
+end
+
+rule "Uzytkownik lubi plywac w rzekach i strumykach"
+    when
+        u :(UlubionaPlycizna(nazwa == "W strumykach i rzekach"))
+        q: QuestionData( pytanie == "Pływasz rekreacyjnie?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyPlywaRekreacyjnie(answer));
+end
+
+rule "Uzytkownik plywa rekreacyjnie"
+    when
+        c :(CzyPlywaRekreacyjnie(odpowiedz == "Tak, lubię się bawić w wodzie"))
+    then
+        insert(new Wynik("Pochodzisz od Europejskiej Wydry Rzecznej :)"));
+end
+
+rule "Uzytkownik plywa wyczynowo"
+    when
+        c :(CzyPlywaRekreacyjnie(odpowiedz == "Niezbyt, pływam bardziej wyczynowo 8)"))
+    then
+        insert(new Wynik("Pochodzisz od Czerwonej Piranii :O"));
+end
+
+rule "Uzytkownik lubi plywac na glebokim morzu"
+    when
+        u :(UlubioneMiejsceDoPlywania(nazwa == "Na głębokim morzu"))
+        q: QuestionData( pytanie == "Czy pływasz samemu?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyPlywaSam(answer));
+end
+
+rule "Uzytkownik plywa samemu"
+    when
+        c :(CzyPlywaSam(odpowiedz == "Tak"))
+        q: QuestionData( pytanie == "Dlaczego pływasz samemu?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new DlaczegoPlywaSam(answer));
+end
+
+rule "Uzytkownik jest niemily"
+    when
+        d :(DlaczegoPlywaSam(odpowiedz == "Bo jestem niemiły"))
+    then
+        insert(new Wynik("Pochodzisz od Żarłacza Tępogłowego :O"));
+end
+
+rule "Uzytkownik czuje się niewidzialny"
+    when
+        d :(DlaczegoPlywaSam(odpowiedz == "Bo... Czuję się niewidzialny"))
+    then
+        insert(new Wynik("Pochodzisz od przezroczystej meduzy :)"));
+end
+
+rule "Uzytkownik nie plywa samemu"
+    when
+        c :(CzyPlywaSam(odpowiedz == "Nie"))
+        q: QuestionData( pytanie == "Z kim więc pływasz?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new KompaniDoPlywania(answer));
+end
+
+rule "Uzytkownik plywa z towarzyszem zycia"
+    when
+        k :(KompaniDoPlywania(kompani == "Z moim towarzyszem życia"))
+    then
+        insert(new Wynik("Pochodzisz od Ustniczka Czarnego :)"));
+end
+
+rule "Uzytkownik plywa z 15k znajomych z fb"
+    when
+        k :(KompaniDoPlywania(kompani == "Z wszystkimi moimi 15 tysiącami znajomych z facebooka"))
+    then
+        insert(new Wynik("Pochodzisz od Żółtoogoniastej Barakudy"));
+end
+
+rule "Uzytkownik lubi plywac na G L E B O K I M morzu"
+    when
+        u :(UlubioneMiejsceDoPlywania(nazwa == "Nie, na G Ł Ę B O K I M  morzu"))
+        q: QuestionData( pytanie == "Czy jesteś straszny?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyJestStraszny(answer));
+end
+
+rule "Uzytkownik jest straszny"
+    when
+        c :(CzyJestStraszny(odpowiedz == "Tak" || odpowiedz == "Nie"))
+        q: QuestionData( pytanie == "Czego masz więcej?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyMaWiecejZebowNizMacek(answer));
+end
+
+rule "Uzytkownik ma wiecej zebow niz macek"
+    when
+        c :(CzyMaWiecejZebowNizMacek(odpowiedz == "Zębów"))
+    then
+        insert(new Wynik("Pochodzisz od Żmijowców"));
+end
+
+rule "Uzytkownik ma wiecej macek niz zebow"
+    when
+        c :(CzyMaWiecejZebowNizMacek(odpowiedz == "Macek"))
+    then
+        insert(new Wynik("Pochodzisz od Kałamarnicy Olbrzymiej!"));
+end
+
 
 rule "Uzytkownik lubi randkowac"
     when
@@ -120,6 +751,7 @@ rule "Uzytkownik nie jest pantoflem"
         insert(new Wynik("Pochodzisz od Turkawki Zwyczajnej"))
 end
 
+
 rule "Uzytkownik lubi spac"
     when
          u: (UlubionaCzynnosc(czynnosc == ("spanie")))
@@ -158,6 +790,7 @@ rule "Inni twierdza, ze uzytkownik jest przytulaskiem"
     then
         insert(new Wynik("Pochodzisz od Misia Koala <zzzz>"))
 end
+
 
 rule "Uzytkownik nie ogarnia"
     when
