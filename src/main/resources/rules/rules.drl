@@ -1,0 +1,184 @@
+package com.drools.example
+dialect  "mvel"
+
+declare UserStartedQuiz
+end
+
+declare QuestionData
+    pytanie: String
+    odpowiedzi: String[]
+end
+
+declare UlubionaCzynnosc
+    czynnosc: String
+end
+
+declare Wynik
+    wiadomoscKoncowa: String
+end
+
+declare Wiadomosc
+    tresc: String
+end
+
+declare CzyNocnaZmiana
+    decyzja: String
+end
+
+declare CzyPrzytulasek
+    odpowiedz: String
+end
+
+declare CzyAdam
+    odpowiedz: String
+end
+
+declare CzyPantofel
+    odpowiedz: String
+end
+
+declare UlubioneMiejsceDoPlywania
+    nazwa: String
+end
+
+rule "Initialize system"
+    when
+    then
+        Main.createAndShowWelcomingWindow();
+        insert(new QuestionData("Jaka jest Twoja ulubiona czynność?", new String[]{"spanie", "bieganie", "plywanie", "jedzenie", "nie rozumiem o co chodzi", "randkowanie"}));
+        insert(new QuestionData("Czy pracujesz na nocnej zmianie?", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Czy lubisz sie przytulac?", new String[]{"Moja mama mówi, że tak", "Ludzie inni niż moja mama mówią, że tak"}));
+        insert(new QuestionData("FUCK AND CHUCK?? :---))))", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Czy jestes pantoflem (gospodyniem domowym)?", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Gdzie lubisz pływać?", new String[]{"W piachu", "W płyciznach", "Na głębokim morzu", "Nie, na G Ł Ę B O K I M  morzu"}));
+        insert(new QuestionData("W jakich płyciznach?", new String[]{"W kałużach na chodniku", "W stawach i jeziorach", "Na strumykach i rzekach"}));
+        insert(new QuestionData("Czy jesz frytki?", new String[]{"Tak, precle także", "Nie"}));
+        insert(new QuestionData("Czy umiesz utrzymywać się na wodzie?", new String[]{"Tak, nie utonąłbym, nawet jeślibym próbował", "Tonę jak kamień :("}));
+        insert(new QuestionData("Pływasz rekreacyjnie?", new String[]{"Tak, lubię się bawić w wodzie", "Niezbyt, pływam bardziej wyczynowo 8)"}));
+        insert(new QuestionData("Czy pływasz samemu?", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Dlaczego pływasz samemu?", new String[]{"Bo jestem niemiły", "Bo... Czuję się niewidzialny"}));
+        insert(new QuestionData("Z kim więc pływasz?", new String[]{"Z moim towarzyszem życia", "Z wszystkimi moimi 15 tysiącami znajomych z facebooka"}));
+        insert(new QuestionData("Czy jesteś straszny?", new String[]{"Tak", "Nie"}));
+        insert(new QuestionData("Czego masz więcej?", new String[]{"Zębów", "Macek"}));
+        insert(new UserStartedQuiz());
+end
+
+rule "Ask first question"
+    when
+        u: (UserStartedQuiz())
+        q: QuestionData( pytanie == "Jaka jest Twoja ulubiona czynność?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new UlubionaCzynnosc(answer));
+end
+
+rule "Uzytkownik lubi plywac"
+    when
+         u: (UlubionaCzynnosc(czynnosc == ("plywanie")))
+         q: QuestionData( pytanie == "Gdzie lubisz pływać?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new UlubioneMiejsceDoPlywania(answer));
+end
+
+rule "Uzytkownik lubi randkowac"
+    when
+         u: (UlubionaCzynnosc(czynnosc == ("randkowanie")))
+         q: QuestionData( pytanie == "FUCK AND CHUCK?? :---))))")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyAdam(answer));
+end
+
+rule "Uzytkownik to Adam"
+    when
+        c: CzyAdam(odpowiedz == "Tak")
+    then
+        insert(new Wynik("Pochodzisz od Delfina Butlonosego :-)"))
+end
+
+rule "Uzytkownik to nie Adam"
+    when
+        c: CzyAdam(odpowiedz == "Nie")
+        q: QuestionData(pytanie == "Czy jestes pantoflem (gospodyniem domowym)?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyPantofel(answer));
+end
+
+rule "Uzytkownik to pantofel"
+    when
+        c: CzyPantofel(odpowiedz == "Tak")
+    then
+        insert(new Wynik("Pochodzisz od karłowatego konika morskiego XD"))
+end
+
+rule "Uzytkownik nie jest pantoflem"
+    when
+        c: CzyPantofel(odpowiedz == "Nie")
+    then
+        insert(new Wynik("Pochodzisz od Turkawki Zwyczajnej"))
+end
+
+rule "Uzytkownik lubi spac"
+    when
+         u: (UlubionaCzynnosc(czynnosc == ("spanie")))
+         q: QuestionData( pytanie == "Czy pracujesz na nocnej zmianie?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyNocnaZmiana(answer));
+end
+
+rule "Uzytkownik pracuje na nocnej zmianie"
+    when
+        c: CzyNocnaZmiana(decyzja == "Tak")
+    then
+        insert(new Wynik("Pochodzisz od Nocka Myszouchego :-)"))
+end
+
+rule "Uzytkownik nie pracuje na nocnej zmianie"
+    when
+        c: CzyNocnaZmiana(decyzja == "Nie")
+        q: QuestionData(pytanie == "Czy lubisz sie przytulac?")
+    then
+        answer = Main.showQuestion(q.pytanie, q.odpowiedzi);
+        insert(new CzyPrzytulasek(answer));
+end
+
+rule "Mama uzytkownika twierdzi, ze jest przytulaskiem"
+    when
+        c: CzyPrzytulasek(odpowiedz == "Moja mama mówi, że tak")
+    then
+        insert(new Wynik("Pochodzisz od Zębolity Olbrzymiej :~~D"))
+end
+
+rule "Inni twierdza, ze uzytkownik jest przytulaskiem"
+    when
+        c: CzyPrzytulasek(odpowiedz == "Ludzie inni niż moja mama mówią, że tak")
+    then
+        insert(new Wynik("Pochodzisz od Misia Koala <zzzz>"))
+end
+
+rule "Uzytkownik nie ogarnia"
+    when
+        u: (UlubionaCzynnosc(czynnosc == ("nie rozumiem o co chodzi")))
+    then
+        System.out.println(u.czynnosc);
+        insert(new Wiadomosc("Spoko, nikt nie oczekiwal ze bedziesz to rozumial ;)"));
+end
+
+rule "Pokaz wiadomosc idiocie"
+    when
+        w: (Wiadomosc(tresc == "Spoko, nikt nie oczekiwal ze bedziesz to rozumial ;)"))
+    then
+        System.out.println(w.tresc);
+        Main.showMessage(w.tresc);
+        insert(new Wynik("Pochodzisz od Belgijskiej Owcy Mlecznej :-)"))
+end
+
+rule "Pokaz wynik"
+    when
+        w: (Wynik())
+    then
+        Main.showMessage(w.wiadomoscKoncowa);
+end
